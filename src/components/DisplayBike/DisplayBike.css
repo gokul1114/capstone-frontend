@@ -1,0 +1,13 @@
+.bike-card{
+
+}
+
+.bike-card:hover{
+    box-shadow:10px 10px 10px grey,
+    -10px -0px 10px grey;
+    /* box-shadow:10px 10px 10px black, */
+}
+
+.css-1t6e9jv-MuiCardActions-root {
+    justify-content: flex-end;
+}

@@ -1,0 +1,13 @@
+.filter-Container{
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    height : max-content
+}
+h4{
+    display : inline
+}
+
+.sort-by-select{
+    max-width: 90%;
+    font-weight: bolder;
+}

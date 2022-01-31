@@ -1,0 +1,25 @@
+/* @import url(../LandingPage/bike.jpg);
+*/
+.landingContainer {
+    background-image: url(../../assets/bike_grey.jpg);
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+    overflow: -moz-hidden-unscrollable;
+    overflow: hidden;
+}
+
+.search-btn:hover {
+    background-color: white !important;
+    color : black;
+    border : 1px solid black;
+}
+
+.select-city:focus {
+    border: 1px black solid !important;
+}
+
+.MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    width: 100%;
+}
