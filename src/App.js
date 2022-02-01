@@ -9,7 +9,7 @@ import Checkout from "./components/Checkout/Checkout.js";
 import './App.css'
 
 export const SERVER_URL = 'https://bike-rentals-server.herokuapp.com/'
-export const SERVER_URL = 'http://localhost:9000/'
+//export const SERVER_URL = 'http://localhost:9000/'
 // export const SERVER_URL = 'https://6191a91141928b00176900f1.mockapi.io/cars'
 function App() {
   const [isLogin, setIsLogin] = useState(false);
