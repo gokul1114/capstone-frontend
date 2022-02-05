@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 import { NavBar } from "./NavBar";
 import { Routes, Route} from 'react-router-dom';
 import Login from "./components/Login/Login.js";
@@ -11,9 +11,15 @@ import './App.css'
 export const SERVER_URL = 'https://bike-rentals-server.herokuapp.com/'
 //export const SERVER_URL = 'http://localhost:9000/'
 // export const SERVER_URL = 'https://6191a91141928b00176900f1.mockapi.io/cars'
+export const context = createContext(0);
+
 function App() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(localStorage.getItem('token')? true : false);
+  const [isGoogleLogin, setIsGoogleLogin] = useState(false)
+  const obj = {isLogin, setIsLogin, isGoogleLogin, setIsGoogleLogin}
+  console.log(isLogin, isGoogleLogin)
   return (
+    <context.Provider value = {obj}>
     <div className="App">
       <NavBar />
       <Routes>
@@ -26,6 +32,7 @@ function App() {
         <Route path = "/register" element = {<Register />} />
       </Routes>
     </div>
+    </context.Provider>
   );
 }
 

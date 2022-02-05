@@ -18,6 +18,7 @@ export default function Checkout() {
   const [basePrice, setBasePrice] = useState(0)
   const [totalPrice, setTotalPrice] = useState(2000);
   const securityDeposit = 2000
+  const [isLogin, setLogIn]   = useState(localStorage.getItem('token')?true:false)
 
   const token = localStorage.getItem("token")
   if (!bookingDetails) {

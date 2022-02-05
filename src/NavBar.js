@@ -8,12 +8,27 @@ import Avatar from "@mui/material/Avatar";
 import img from './assets/rental.jpg';
 import LoginIcon from '@mui/icons-material/Login';
 import { useNavigate } from "react-router-dom";
+import  GoogleLogoutMod  from "./components/GoogleLogout/GoogleLogoutMod.js"
+import { useState, useContext } from "react";
+import { context } from "./App";
 
 export function NavBar() {
   const navigate = useNavigate()
+  const {isLogin, setIsLogin, isGoogleLogin, setIsGoogleLogin} = useContext(context)
+  console.log(isLogin)
   const openLogin = () => {
     navigate("/login")
   }
+ 
+  const logOut = () => {
+    localStorage.clear()
+    setIsLogin(false);
+  }
+
+  const takeHome = () => {
+    navigate("/")
+  }
+
   return (
     <Box>
       <AppBar
@@ -32,6 +47,7 @@ export function NavBar() {
         >
           <Box
             sx={{ mr: 2, alignSelf : 'center', alignContent : 'center', display : 'flex' }}
+            onClick = {takeHome}
           >
           <Avatar
             src={img}
@@ -49,10 +65,17 @@ export function NavBar() {
             Rapid Rentals
           </Typography>
           </Box>
-          
+          {!isLogin ?
           <Button variant="outlined" 
           sx={{backgroundColor : "white", color : 'black'}}
           onClick = {openLogin}><LoginIcon />Login</Button>
+          :
+          
+          isGoogleLogin? <GoogleLogoutMod/> : 
+          <Button variant="outlined" 
+          sx={{backgroundColor : "white", color : 'black'}}
+          onClick = {logOut}><LoginIcon />Logout</Button>
+          }
         </Toolbar>
       </AppBar>
     </Box>
